@@ -147,7 +147,7 @@ public class Client {
 
             try {
                 FileOutputStream fos = new FileOutputStream(
-                        "/Users/Rav/Desktop/Snapshot.ser");
+                        "C:\\Users\\Hammam\\Desktop\\Snapshot.ser");
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 oos.writeObject(Snapshot.read(in).getMethods());
                 oos.close();
