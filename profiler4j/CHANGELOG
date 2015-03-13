@@ -1,0 +1,89 @@
+-- planned    
+
+    - Allow the console to save and load snapshots. 
+    - Snapshots should describe each thread separately.
+    - Snapshots should allow incremental updates by sharing constant pools
+    - Allow the user to load and save profiling projects.
+    - Memory monitor should include more info
+    - Add a thread state monitor
+    - Use atomic variables to decrease monitor contention
+    - Add an allocation tracer
+    - Create tests
+    - Improve graph layout algorithm.
+    - Allow the user to hide methods in the call graph view
+    - Provide a minimal bundled documentation
+    - Provide some presets for Tomcat and JBoss
+    - Add a menu option to check for newer releases
+    - Show tooltips during startup
+
+	- disable save button when there´s nothing new to save
+	- load the last project when the console starts
+	- show the connection status and project name in the title
+	- show snaphost history
+    - Fix call tree problems
+    - allow the user to disable memory and thread monitoring
+    
+1.0-beta2 (2006-06-25)
+
+    - BUG [1511199] Startup Error in Linux
+    - added basic thread monitoring support	
+        
+1.0-beta1
+
+    - BUG [1505201] Library bootstrap
+    - (new) major refactoring in the console with a new event-driven architecture. Now
+            it´s much more easier to add UI features.
+    - (new) load/save project settings    
+    - (new) added monitoring for non-heap memory
+    - (new) many UI improvements
+    - (new) added some internal stats to the agent and some other minor improvements
+
+1.0-alpha7
+    
+    - (new) network protocol redesigned from stracth (no serialization)
+    - (fix) deadlock when redefining classes in JBoss
+    - (new) progress notification in long taks
+    - (new) class list show instrumentation status
+    - (fix) class list not cleared on disconnect
+    - (new) improved rule editor (color)
+    
+1.0-alpha6
+
+    - default verbosity set to 1
+    - (new) agent should redefine only really needed classes    
+    - (fix) cannot close console onf agent error
+    - (fix) console not exiting process when closed
+    - (fix) Error redefining org.apache.tomcat.jni.OS class (being skipped now)
+    - (new) replaced usage of monitors by reentrant locks (faster with high contention)
+
+1.0-alpha5
+  
+    - (new) ultra-fast snapshot serialization (must less memory required)
+    - (new) decreased memory overhead hugely
+	- (new) unblocking UI when connecting/ desconnecting/ appying rules/ taking snapshots
+	- (new) show enhanceable classes and allow the user to easly create rules
+	- (new) validate agent and console versions in a network handshake
+	- (new) show methods' details in the graph
+	- (new) reduced the max number of visible methods in call graph
+	- (new) minor UI improvements
+	- (new) increased to 5 min memory monitor history
+	- (fix) parsing of agent parameters  
+	- (fix) client should disconnect cleanly when the user closes the window without an 
+	        explicity disconnect
+	- (fix) EOFException in remote JVM during disconnect
+	- many refactorings
+	
+1.0-alpha4
+
+	- (new) on-the-fly reconfiguration of the profiling agent	
+	- (new) configuration parameters (waitconn e verbosity) for the agent command line	
+	- (new) dialog to edit the profiling rules for the current session	
+	- (new) improve visualization for recursive methods
+    - (new) really improved call graph view based on well-routed splines    
+    - (new) replace ptplot by jfreechart
+        
+1.0-alpha3
+
+	- (fix) bug with property defaultRuleOptions	
+	- (new) separated agent and console modules into two different jars	
+	- (new) added memory monitor for the remove JVM
