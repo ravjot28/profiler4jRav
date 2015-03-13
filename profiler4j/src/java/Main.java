@@ -4,7 +4,11 @@ import java.io.ObjectInputStream;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import net.sf.profiler4j.console.Snapshot;
 import net.sf.profiler4j.console.Snapshot.Method;
+import net.sf.profiler4j.console.TreeBuilder;
 
 /*
  * Copyright 2006 Antonio S. R. Gomes
@@ -36,24 +40,19 @@ public class Main {
 
             in.close();
             fileIn.close();
+            
+            Snapshot snap = new Snapshot();
+            snap.setMethods(map);
+            TreeBuilder t = new TreeBuilder(snap);
+            
+            DefaultMutableTreeNode tree= t.buildTree();
+            
+            System.out.println(tree.getRoot().getChildCount());
+            
 
             System.out.println(map.size());
-            //System.out.println(map.get(1).getMethodName());
-            Iterator it = map.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry pair = (Map.Entry) it.next();
-                Integer key = (Integer) pair.getKey();
-                Method method = (Method) pair.getValue();
-                System.out.println(key+" "+method.getClassName()+" "+method.getMethodName());
-                Map<Method, Double> map1 = method.getChildrenTimes();
-                Iterator it1 = map1.entrySet().iterator();
-                while (it1.hasNext()) {
-                    Map.Entry pair1 = (Map.Entry) it1.next();
-                    Method m = (Method) pair1.getKey();
-                    Double d = (Double) pair1.getValue();
-                    System.out.println(m.getMethodName()+" "+d);
-                }
-            }
+            // System.out.println(map.get(1).getMethodName());
+           
 
         } catch (IOException i) {
             i.printStackTrace();

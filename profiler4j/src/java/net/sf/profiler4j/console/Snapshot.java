@@ -105,6 +105,9 @@ public class Snapshot implements Serializable{
         return this.methods;
     }
 
+    public void setMethods(Map<Integer, Method> methods){
+        this.methods = methods;
+    }
     /**
      * @return Returns the systemProperties.
      */
